@@ -14,20 +14,24 @@ public class CircuitBreaker {
 		String res = "";
 		
 		if(estado.equals("half-open") && contador <= 10) {
-			System.out.println("DE HALF-OPEN A OPEN");
+			System.out.println(estado);
+			estado = "open";
 			res = "open";
 		} else if (estado.equals("half-open") && contador > 10) {
-			System.out.println("DE HALF-OPEN A CLOSED");
+			System.out.println(estado);
+			estado = "closed";
 			res = "closed";
 		}
 		
 		if(estado.equals("closed") && contador <= 10) {
-			System.out.println("DE CLOSED A HALF-OPEN");
+			System.out.println(estado);
+			estado = "half-open";
 			res = "half-open";
 		}
 		
 		if(estado.equals("open") && contador <= 10) {
-			System.out.println("DE OPEN A HALF-OPEN");
+			System.out.println(estado);
+			estado = "half-open";
 			res = "half-open";
 		}
 			
