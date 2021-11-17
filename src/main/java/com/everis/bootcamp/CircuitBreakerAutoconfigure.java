@@ -6,19 +6,19 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConditionalOnClass(Saludo.class)
-@EnableConfigurationProperties(SaludoProperties.class)
-public class SaludoAutoconfigure {
+@ConditionalOnClass(CircuitBreaker.class)
+@EnableConfigurationProperties(CircuitBreakerProperties.class)
+public class CircuitBreakerAutoconfigure {
 	
-	private final SaludoProperties properties;
+	private final CircuitBreakerProperties properties;
 	
-	public SaludoAutoconfigure(SaludoProperties properties) {
+	public CircuitBreakerAutoconfigure(CircuitBreakerProperties properties) {
 		this.properties = properties;
 	}
 	
 	@Bean
-	public Saludo saludo() {
-		return new Saludo(properties.getIdioma());
+	public CircuitBreaker cb() {
+		return new CircuitBreaker(properties.getEstado());
 	}
 
 }
